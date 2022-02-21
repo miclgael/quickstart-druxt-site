@@ -46,7 +46,7 @@ export const actions = {
     if (!state.eventsFetched) {
       await dispatch('fetchContent')
     }
-    const eventData = await state.events.find(event => {
+    const eventData = state.events.find(event => {
       return event.attributes.path.alias === payload
     })
     commit('setEvent', eventData.attributes)
