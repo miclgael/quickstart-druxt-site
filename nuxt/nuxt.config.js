@@ -56,7 +56,7 @@ export default {
     // Disable deprecated Entity fields.
     entity: { components: { fields: false }},
     // Set the default theme to render Site regions.
-    site: { theme: 'bartik' },
+    site: { theme: 'mgale-druxt' },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -71,6 +71,6 @@ export default {
 
   hooks: {
     // Open browser once build is done.
-    'build:done': () => opn('https://localhost:3000')
+    //'build:done': () => opn('https://localhost:3000')
   }
 }
