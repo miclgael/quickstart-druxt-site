@@ -1,74 +1,78 @@
-# DruxtSite quickstart - Drupal
+# MG technical evaluation
 
-> One click, Fully Decoupled Drupal Site starter-kit with Druxt.
+# Backend config
 
-DruxtSite connects Drupal to Nuxt via JSON:API to provide a framework for building a Fully Decoupled site.
+See [Drupal Backend URL](https://8080-miclgael-quickstartdruxt-b5am05kf8ai.ws-us32.gitpod.io/)
 
-This repostory provides a quickstart installation of:
-- Drupal 9
-- Nuxt 2
-- DruxtSite
+## Install dependencies
 
+```txt
+ddev composer require 'drupal/pathauto'
+ddev composer require 'drupal/title_field_for_manage_display'
+ddev composer require 'drupal/address:^1.10'
+```
 
-## Quickstart
+## Add modules in Drupal Backend
 
-Try it before you fork it:
+Log-in to Drupal backend at `/admin`
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/druxt/quickstart-druxt-site)
+Navigate to `/admin/modules`
 
+1. Check the boxes: Address, Pathauto, Title Field For Manage Display
+2. Click Install
+3. When prompted, also install the required dependencies (Chaos Tools/Token)
 
-## Getting started
+> ✅ _5 modules have been enabled: Address, Pathauto, Title Field For Manage Display, Chaos Tools, Token._
 
-1. Click the **Use this template** button in GitHub and follow the on-screen instructions to **Create a new repository**.
+## Add `Event` Type
 
-2. Once the repository has been generated, open it in Gitpod by appending `https://gitpod.io#` to the GitHub url.
+1. Navigate to `/admin/structure/types`.
+2. Click `+ Add content type`, give it the title 'Event'
+3. Go to manage fields `/admin/structure/types/manage/event/fields`
 
-   Example: `https://gitpod.io#github.com/druxt/quickstart-druxt-site`
+<details>
+  <summary>Create these Event fields</summary>
+  <div>
+    Title
+      Description 
+      Start date 
+        Help text: Enter the date the event starts. 
+      Start time
+        Help text: If there is a fixed start time for your event enter it here. 
+      End date
+        Help text: If this event runs over multiple days enter the last date here. 
+      End time
+        Help text: If there is a fixed end time for your event enter it here. 
 
-   _Note:_ If this is your first time using Gitpod, you can signup for a free plan with your Github account.
+      Address
+        Only expose the following address fields:
+        Company
+        Street Address (2 lines)
+        Suburb
+        State
+        Postal code
 
-3. Wait for your codebase to build.
+        Default Country Australia, Default state Victoria.
 
-   _Note:_ To speed up this step, enable Prebuilds by follow the instructions @ https://www.gitpod.io/docs/prebuilds#enable-prebuilt-workspaces
+      Contact email
 
+        Help text: Enter the primary contact email address.
 
-## How to use it
+      Contact phone
 
-Your environment contains a pre-install, pre-configured and running instance of Drupal and Nuxt, with the DruxtSite module enabled.
+        Help text: Enter the primary contact email address.
+  </div>
+</details>
 
-You can access the services in your browser, via the **Remote Explorer** extension, or via the URL pattern: `https://[PORT]-[GITPOD_ID].[GITPOD_SERVER].gitpod.io`
+## Configure custom slug for Event with pathauto
 
+1. Go to `admin/config/search/path/patterns`
+2. Create new Pathauto pattern: `event/[current-date:html_date]-[node:field_display_title]`
 
-## Services
+## Enter Event Content
 
-| Port | Service |
-| -- | -- |
-| `3000` | Nuxt.js |
-| `3003` | Storybook |
-| `8080` | Drupal |
+[Event slug](https://8080-miclgael-quickstartdruxt-b5am05kf8ai.ws-us32.gitpod.io/event/2022-02-18-rememberance-day-activities)
 
+# Front end Config
 
-## Tools
-
-### DDEV
-
-> DDEV is an open source tool that makes it dead simple to get local PHP development environments up and running within minutes. 
-
-DDEV is used to manage the Drupal instance, and provides a CLI that can be used to run common drupal tasks, including `ddev drush`.
-
-These commands should be run from within the `/drupal` folder.
-
-Refer to the documentation for more details: https://ddev.readthedocs.io
-
-### @nuxtjs/storybook
-
-> Storybook integration with NuxtJS .
-
-Druxt integrates with the Nuxt Storybook module to provide zero-configuration, auto-discovery stories with access to live data from your Drupal backend.
-
-To start Storybook, navigate to the `nuxt` directory and run `npx nuxt storybook`.
-
-
-## License
-
-[MIT](https://github.com/druxt/druxt.js/blob/develop/LICENSE)
+See [Nuxt Front-end](https://3000-miclgael-quickstartdruxt-b5am05kf8ai.ws-us32.gitpod.io/)
