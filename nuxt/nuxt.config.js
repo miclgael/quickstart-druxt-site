@@ -72,5 +72,13 @@ export default {
   hooks: {
     // Open browser once build is done.
     //'build:done': () => opn('https://localhost:3000')
+  },
+
+  // https://stackoverflow.com/a/53351373
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
   }
 }
