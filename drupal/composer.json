@@ -16,10 +16,13 @@
     ],
     "require": {
         "composer/installers": "2.0.1",
+        "drupal/address": "^1.10",
         "drupal/core-composer-scaffold": "9.3.6",
         "drupal/core-project-message": "9.3.6",
         "drupal/core-recommended": "9.3.6",
         "drupal/druxt": "1.1.1",
+        "drupal/pathauto": "^1.9",
+        "drupal/title_field_for_manage_display": "^2.0",
         "drush/drush": "11.0.5"
     },
     "require-dev": {
